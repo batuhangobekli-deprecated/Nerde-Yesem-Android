@@ -1,5 +1,6 @@
 package com.example.neyesem.utils;
 
+
 import android.app.ActivityManager;
 import android.content.Context;
 
