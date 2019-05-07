@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Ne Yesem</string>
+    <string name="location_on_access_denied">Ne Yesem uygulaması size yakın konumdaki restoranları göstermek için konum bilgisine ihtiyaç duyar. Lütfen konum izinlerini açın. </string>
+
 </resources>
