@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.example.neyesem.R;
-import com.example.neyesem.view.CategoriesFragment;
-import com.example.neyesem.view.NearbyRestaurantsFragment;
+import com.example.neyesem.view.categories.CategoriesFragment;
+import com.example.neyesem.view.nearbyrestaurant.NearbyRestaurantsFragment;
 import com.ncapdevi.fragnav.FragNavController;
 import com.ncapdevi.fragnav.FragNavTransactionOptions;
 

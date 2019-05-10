@@ -1,4 +1,4 @@
-package com.example.neyesem.view;
+package com.example.neyesem.view.categories;
 
 import com.example.neyesem.shared.BaseFragment;
 
