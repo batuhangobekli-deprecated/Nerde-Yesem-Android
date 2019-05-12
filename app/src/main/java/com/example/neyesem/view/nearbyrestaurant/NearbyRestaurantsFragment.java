@@ -44,12 +44,11 @@ public class NearbyRestaurantsFragment extends BaseFragment implements NearbyRes
             parentView = inflater.inflate(R.layout.fragment_nearbyrestaurants, container, false);
             initViews();
             configurelocationPermission();
-            getNearbyRestaurants();
         }
         return parentView;
     }
     private void getNearbyRestaurants(){
-        presenter.getBlogDetail((AppCompatActivity) getActivity(),container,40.0,-72.12);
+        presenter.getBlogDetail((AppCompatActivity) getActivity(),container,lastLocation.getLatitude(),lastLocation.getLongitude());
     }
     private void initViews(){
         container = parentView.findViewById(R.id.relativelayout_container);
@@ -60,6 +59,7 @@ public class NearbyRestaurantsFragment extends BaseFragment implements NearbyRes
                 .permission(Permission.Group.LOCATION)
                 .onGranted(permissions -> {
                     startLocationService();
+                    getNearbyRestaurants();
                 })
                 .onDenied(permissions -> {
                     new AlertDialog.Builder(getContext())
@@ -71,7 +71,6 @@ public class NearbyRestaurantsFragment extends BaseFragment implements NearbyRes
                                 }
                             })
                             .setCancelable(false).show();
-
                 })
                 .start();
     }
@@ -85,11 +84,9 @@ public class NearbyRestaurantsFragment extends BaseFragment implements NearbyRes
         getActivity().stopService(new Intent(getContext(), LocationService.class));
     }
 
-
     @SuppressLint("MissingPermission")
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onLocationCallback(LocationResult locationResult) {
-        Toast.makeText(getContext(), locationResult.getLastLocation().toString(), Toast.LENGTH_SHORT).show();
         this.lastLocation = locationResult.getLastLocation();
         stopLocationService();
     }

@@ -99,4 +99,124 @@ public class Restaurant {
     @SerializedName("events_url")
     @Expose
     private String eventsUrl;
+
+    public R getR() {
+        return r;
+    }
+
+    public String getApikey() {
+        return apikey;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public Location_ getLocation() {
+        return location;
+    }
+
+    public Integer getSwitchToOrderMenu() {
+        return switchToOrderMenu;
+    }
+
+    public String getCuisines() {
+        return cuisines;
+    }
+
+    public Integer getAverageCostForTwo() {
+        return averageCostForTwo;
+    }
+
+    public Integer getPriceRange() {
+        return priceRange;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public List<Object> getOffers() {
+        return offers;
+    }
+
+    public Integer getOpentableSupport() {
+        return opentableSupport;
+    }
+
+    public Integer getIsZomatoBookRes() {
+        return isZomatoBookRes;
+    }
+
+    public String getMezzoProvider() {
+        return mezzoProvider;
+    }
+
+    public Integer getIsBookFormWebView() {
+        return isBookFormWebView;
+    }
+
+    public String getBookFormWebViewUrl() {
+        return bookFormWebViewUrl;
+    }
+
+    public String getBookAgainUrl() {
+        return bookAgainUrl;
+    }
+
+    public String getThumb() {
+        return thumb;
+    }
+
+    public UserRating getUserRating() {
+        return userRating;
+    }
+
+    public String getPhotosUrl() {
+        return photosUrl;
+    }
+
+    public String getMenuUrl() {
+        return menuUrl;
+    }
+
+    public String getFeaturedImage() {
+        return featuredImage;
+    }
+
+    public Integer getHasOnlineDelivery() {
+        return hasOnlineDelivery;
+    }
+
+    public Integer getIsDeliveringNow() {
+        return isDeliveringNow;
+    }
+
+    public Boolean getIncludeBogoOffers() {
+        return includeBogoOffers;
+    }
+
+    public String getDeeplink() {
+        return deeplink;
+    }
+
+    public Integer getIsTableReservationSupported() {
+        return isTableReservationSupported;
+    }
+
+    public Integer getHasTableBooking() {
+        return hasTableBooking;
+    }
+
+    public String getEventsUrl() {
+        return eventsUrl;
+    }
 }
