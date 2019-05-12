@@ -1,6 +1,5 @@
 package com.example.neyesem.services;
 
-
 import android.app.Service;
 import android.content.Intent;
 import android.location.Location;
@@ -20,7 +19,10 @@ import com.google.android.gms.location.LocationServices;
 
 import org.greenrobot.eventbus.EventBus;
 
-public class LocationService extends Service implements LocationListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+public class LocationService extends Service implements
+        LocationListener,
+        GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener {
 
     LocationCallback mLocationCallback = new LocationCallback() {
         @Override

@@ -1,24 +1,32 @@
 package com.example.neyesem.view.nearbyrestaurant;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.neyesem.BuildConfig;
 import com.example.neyesem.R;
 import com.example.neyesem.model.nearby_restaurants.GeocodeResponse;
+import com.example.neyesem.services.LocationService;
 import com.example.neyesem.shared.BaseFragment;
+import com.google.android.gms.location.LocationResult;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.runtime.Permission;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import retrofit2.Response;
 
@@ -26,6 +34,7 @@ public class NearbyRestaurantsFragment extends BaseFragment implements NearbyRes
     private View parentView;
     private RelativeLayout container;
     private NearbyRestaurantsPresenter presenter = new NearbyRestaurantsPresenter(this);
+    private Location lastLocation;
 
 
     @Nullable
@@ -50,7 +59,7 @@ public class NearbyRestaurantsFragment extends BaseFragment implements NearbyRes
                 .runtime()
                 .permission(Permission.Group.LOCATION)
                 .onGranted(permissions -> {
-                    // Storage permission are allowed.
+                    startLocationService();
                 })
                 .onDenied(permissions -> {
                     new AlertDialog.Builder(getContext())
@@ -66,6 +75,25 @@ public class NearbyRestaurantsFragment extends BaseFragment implements NearbyRes
                 })
                 .start();
     }
+    private void startLocationService() {
+        EventBus.getDefault().register(this);
+        getActivity().startService(new Intent(getContext(), LocationService.class));
+    }
+
+    private void stopLocationService() {
+        EventBus.getDefault().unregister(this);
+        getActivity().stopService(new Intent(getContext(), LocationService.class));
+    }
+
+
+    @SuppressLint("MissingPermission")
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onLocationCallback(LocationResult locationResult) {
+        Toast.makeText(getContext(), locationResult.getLastLocation().toString(), Toast.LENGTH_SHORT).show();
+        this.lastLocation = locationResult.getLastLocation();
+        stopLocationService();
+    }
+
 
     @Override
     public void onGetNearbyRestaurants(GeocodeResponse response) {

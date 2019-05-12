@@ -1,6 +1,5 @@
 package com.example.neyesem.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
