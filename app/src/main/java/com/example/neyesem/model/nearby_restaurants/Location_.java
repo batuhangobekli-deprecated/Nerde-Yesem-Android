@@ -19,10 +19,10 @@ public class Location_ {
     private Integer cityId;
     @SerializedName("latitude")
     @Expose
-    private String latitude;
+    private Double latitude;
     @SerializedName("longitude")
     @Expose
-    private String longitude;
+    private Double longitude;
     @SerializedName("zipcode")
     @Expose
     private String zipcode;
@@ -33,4 +33,39 @@ public class Location_ {
     @Expose
     private String localityVerbose;
 
+    public String getAddress() {
+        return address;
+    }
+
+    public String getLocality() {
+        return locality;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public Integer getCityId() {
+        return cityId;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public Integer getCountryId() {
+        return countryId;
+    }
+
+    public String getLocalityVerbose() {
+        return localityVerbose;
+    }
 }

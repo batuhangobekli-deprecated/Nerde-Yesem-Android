@@ -18,4 +18,19 @@ public class UserRating {
     @Expose
     private String votes;
 
+    public String getAggregateRating() {
+        return aggregateRating;
+    }
+
+    public String getRatingText() {
+        return ratingText;
+    }
+
+    public String getRatingColor() {
+        return ratingColor;
+    }
+
+    public String getVotes() {
+        return votes;
+    }
 }

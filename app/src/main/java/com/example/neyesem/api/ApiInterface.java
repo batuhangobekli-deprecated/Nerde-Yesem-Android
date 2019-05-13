@@ -8,7 +8,7 @@ import retrofit2.http.Query;
 public interface ApiInterface {
 
     @GET("geocode")
-    Call<GeocodeResponse> getNearbyRestaurants(@Query("lat") double latitude, @Query("long") double longitude);
+    Call<GeocodeResponse> getNearbyRestaurants(@Query("lat") double latitude, @Query("lon") double longitude);
 
 
 

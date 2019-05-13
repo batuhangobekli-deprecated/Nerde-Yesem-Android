@@ -21,5 +21,19 @@ public class GeocodeResponse {
     @Expose
     private List<NearbyRestaurant> nearbyRestaurants = null;
 
+    public Location getLocation() {
+        return location;
+    }
 
+    public Popularity getPopularity() {
+        return popularity;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public List<NearbyRestaurant> getNearbyRestaurants() {
+        return nearbyRestaurants;
+    }
 }

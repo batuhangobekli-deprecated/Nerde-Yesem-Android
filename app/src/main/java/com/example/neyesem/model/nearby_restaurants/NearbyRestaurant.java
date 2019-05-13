@@ -17,5 +17,7 @@ public class NearbyRestaurant {
     public void setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
     }
+
+
 }
 
