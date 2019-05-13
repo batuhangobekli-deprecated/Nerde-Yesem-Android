@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relativelayout_restaurantdetail_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
@@ -21,6 +22,7 @@
                 android:layout_height="200dp">
 
                 <ImageView
+                    android:id="@+id/imageview_restaurantdetail_thumbnail"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
@@ -30,9 +32,9 @@
                     android:background="@color/black50" />
 
                 <RelativeLayout
-                    android:layout_alignParentEnd="true"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="12dp"
                     android:background="@color/colorNewYellow"
@@ -124,17 +126,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-medium"
-                            android:text="Açılış Saatleri"
+                            android:text="Değerlendirmeler"
                             android:textColor="@color/colorLightOrange"
                             android:textSize="18sp" />
 
                         <TextView
-                            android:id="@+id/textview_restaurantdetail_hours"
+                            android:id="@+id/textview_restaurantdetail_votes"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:fontFamily="sans-serif-light"
-                            android:text="10-21 SAAT"
+                            android:text="1200 değerlendirme"
                             android:textColor="#282828" />
 
                     </LinearLayout>

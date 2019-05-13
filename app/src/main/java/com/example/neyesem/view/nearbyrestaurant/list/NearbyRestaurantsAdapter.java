@@ -24,6 +24,12 @@ import java.util.List;
 public class NearbyRestaurantsAdapter extends RecyclerView.Adapter<NearbyRestaurantsAdapter.ViewHolder> {
     private Location locationResult;
     private List<NearbyRestaurant> restaurantList = new ArrayList<>();
+    private NearbyRestaurantsListener nearbyRestaurantsListener;
+
+
+    public NearbyRestaurantsAdapter(NearbyRestaurantsListener nearbyRestaurantsListener) {
+        this.nearbyRestaurantsListener = nearbyRestaurantsListener;
+    }
 
     @NonNull
     @Override
@@ -48,6 +54,7 @@ public class NearbyRestaurantsAdapter extends RecyclerView.Adapter<NearbyRestaur
             String distance = NeyesemExtensions.getDistance(restaurant.getLocation().getLatitude(),restaurant.getLocation().getLongitude(),locationResult.getLatitude(),locationResult.getLongitude());
             holder.distanceTextView.setText(distance);
         }
+        holder.cardView.setOnClickListener(v -> nearbyRestaurantsListener.onClickRestaurant(restaurant.getR().getResId()));
     }
     public void setList(List<NearbyRestaurant> restaurants) {
         this.restaurantList.clear();

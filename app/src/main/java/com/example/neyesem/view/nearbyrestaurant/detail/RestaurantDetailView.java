@@ -5,5 +5,5 @@ import com.example.neyesem.shared.BaseView;
 
 
 public interface RestaurantDetailView extends BaseView {
-    void onGetRestaurantDetail(RestaurantDetail response);
+    void onGetRestaurantDetail(RestaurantDetail restaurantDetail);
 }

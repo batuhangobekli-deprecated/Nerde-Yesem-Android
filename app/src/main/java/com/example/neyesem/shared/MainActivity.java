@@ -9,8 +9,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 import com.example.neyesem.R;
 import com.example.neyesem.view.categories.CategoriesFragment;
+import com.example.neyesem.view.nearbyrestaurant.detail.RestaurantDetailFragment;
 import com.example.neyesem.view.nearbyrestaurant.list.NearbyRestaurantsFragment;
 import com.ncapdevi.fragnav.FragNavController;
 import com.ncapdevi.fragnav.FragNavTransactionOptions;
@@ -80,6 +83,13 @@ public class MainActivity extends AppCompatActivity implements FragNavController
             mapButton.setVisibility(View.VISIBLE);
             back.setVisibility(View.GONE);
             title.setVisibility(View.GONE);
+            if (baseFragment instanceof RestaurantDetailFragment) {
+                //1 EventDetaik
+            }
+        }else{
+            logo.setVisibility(View.GONE);
+            back.setVisibility(View.VISIBLE);
+            title.setVisibility(View.VISIBLE);
         }
     }
     public void switchTab(int position){

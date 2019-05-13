@@ -18,8 +18,11 @@ import android.widget.RelativeLayout;
 import com.example.neyesem.BuildConfig;
 import com.example.neyesem.R;
 import com.example.neyesem.model.nearby_restaurants.GeocodeResponse;
+import com.example.neyesem.model.restaurant_detail.RestaurantDetail;
 import com.example.neyesem.services.LocationService;
 import com.example.neyesem.shared.BaseFragment;
+import com.example.neyesem.shared.MainActivity;
+import com.example.neyesem.view.nearbyrestaurant.detail.RestaurantDetailFragment;
 import com.google.android.gms.location.LocationResult;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.runtime.Permission;
@@ -30,12 +33,12 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import retrofit2.Response;
 
-public class NearbyRestaurantsFragment extends BaseFragment implements NearbyRestaurantsView{
+public class NearbyRestaurantsFragment extends BaseFragment implements NearbyRestaurantsView,NearbyRestaurantsListener{
     private View parentView;
     private RelativeLayout container;
     private NearbyRestaurantsPresenter presenter;
     private Location lastLocation;
-    private NearbyRestaurantsAdapter adapter = new NearbyRestaurantsAdapter();
+    private NearbyRestaurantsAdapter adapter = new NearbyRestaurantsAdapter(this);
     private RecyclerView nearbyRestaurantsRecyclerView;
 
 
@@ -50,16 +53,18 @@ public class NearbyRestaurantsFragment extends BaseFragment implements NearbyRes
         }
         return parentView;
     }
+
     private void getNearbyRestaurants(){
         presenter.getBlogDetail((AppCompatActivity) getActivity(),container,lastLocation.getLatitude(),lastLocation.getLongitude());
     }
-    private void initViews()
-    {
+
+    private void initViews() {
         container = parentView.findViewById(R.id.relativelayout_container);
         nearbyRestaurantsRecyclerView = parentView.findViewById(R.id.recyclerview_nearbyrestaurants);
         nearbyRestaurantsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
         nearbyRestaurantsRecyclerView.setAdapter(adapter);
     }
+
     private void configurelocationPermission(){
         AndPermission.with(this)
                 .runtime()
@@ -80,6 +85,7 @@ public class NearbyRestaurantsFragment extends BaseFragment implements NearbyRes
                 })
                 .start();
     }
+
     private void startLocationService() {
         EventBus.getDefault().register(this);
         getActivity().startService(new Intent(getContext(), LocationService.class));
@@ -99,6 +105,10 @@ public class NearbyRestaurantsFragment extends BaseFragment implements NearbyRes
         stopLocationService();
     }
 
+    @Override
+    public void onClickRestaurant(int restaurantId) {
+        ((MainActivity)getActivity()).pushFragment(RestaurantDetailFragment.newInstance(restaurantId),true);
+    }
 
     @Override
     public void onGetNearbyRestaurants(GeocodeResponse response) {
@@ -122,4 +132,6 @@ public class NearbyRestaurantsFragment extends BaseFragment implements NearbyRes
     public static NearbyRestaurantsFragment newInstance(){
         return new NearbyRestaurantsFragment();
     }
+
+
 }

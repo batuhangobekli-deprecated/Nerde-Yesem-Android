@@ -21,7 +21,7 @@ public class RestaurantDetailPresenter {
         this.restaurantDetailView = restaurantDetailView;
     }
 
-    public void getBlogDetail(AppCompatActivity activity, ViewGroup container, String restaurantId) {
+    public void getRestaurantDetail(AppCompatActivity activity, ViewGroup container, int restaurantId) {
         apiInterface.getRestaurantDetail(restaurantId).enqueue(new CustomCallBack<RestaurantDetail>(activity,container,restaurantDetailView,CustomCallBack.Type.Layout) {
             @Override
             public void onResponse(@NonNull Call<RestaurantDetail> call, @NonNull Response<RestaurantDetail> response) {

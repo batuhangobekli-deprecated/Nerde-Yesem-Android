@@ -14,6 +14,6 @@ public interface ApiInterface {
     Call<GeocodeResponse> getNearbyRestaurants(@Query("lat") double latitude, @Query("lon") double longitude);
 
     @GET("restaurant")
-    Call<RestaurantDetail> getRestaurantDetail(@Query("res_id") String id);
+    Call<RestaurantDetail> getRestaurantDetail(@Query("res_id") int id);
 
 }

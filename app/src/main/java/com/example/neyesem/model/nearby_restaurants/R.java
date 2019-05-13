@@ -9,4 +9,7 @@ public class R {
     @Expose
     private Integer resId;
 
+    public Integer getResId() {
+        return resId;
+    }
 }
