@@ -1,4 +1,4 @@
-package com.example.neyesem.view.nearbyrestaurant;
+package com.example.neyesem.view.nearbyrestaurant.list;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -8,8 +8,6 @@ import com.example.neyesem.api.ApiInterface;
 import com.example.neyesem.api.NeyesemAPIClient;
 import com.example.neyesem.model.nearby_restaurants.GeocodeResponse;
 import com.example.neyesem.utils.CustomCallBack;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;

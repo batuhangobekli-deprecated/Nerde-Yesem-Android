@@ -1,4 +1,4 @@
-package com.example.neyesem.view.nearbyrestaurant;
+package com.example.neyesem.view.nearbyrestaurant.list;
 
 import android.location.Location;
 import android.support.annotation.NonNull;

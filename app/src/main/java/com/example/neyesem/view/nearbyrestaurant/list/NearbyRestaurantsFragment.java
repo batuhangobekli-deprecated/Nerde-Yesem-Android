@@ -1,4 +1,4 @@
-package com.example.neyesem.view.nearbyrestaurant;
+package com.example.neyesem.view.nearbyrestaurant.list;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
