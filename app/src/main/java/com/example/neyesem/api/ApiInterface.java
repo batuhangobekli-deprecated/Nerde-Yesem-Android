@@ -1,5 +1,6 @@
 package com.example.neyesem.api;
 
+import com.example.neyesem.model.categories.CategoriesResponse;
 import com.example.neyesem.model.nearby_restaurants.GeocodeResponse;
 import com.example.neyesem.model.nearby_restaurants.Restaurant;
 import com.example.neyesem.model.restaurant_detail.RestaurantDetail;
@@ -15,5 +16,8 @@ public interface ApiInterface {
 
     @GET("restaurant")
     Call<RestaurantDetail> getRestaurantDetail(@Query("res_id") int id);
+
+    @GET("categories")
+    Call<CategoriesResponse> getCategories();
 
 }

@@ -22,7 +22,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <service android:name=".services.LocationService" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyALhaXgOrqu1wzJEwT06z3_VFOo-pUvZUo" />
@@ -45,6 +44,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name=".services.LocationService" />
 
     </application>
 
