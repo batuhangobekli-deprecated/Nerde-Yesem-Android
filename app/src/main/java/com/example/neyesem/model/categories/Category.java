@@ -7,4 +7,8 @@ public class Category {
     @SerializedName("categories")
     @Expose
     private Categories categories;
+
+    public Categories getCategories() {
+        return categories;
+    }
 }

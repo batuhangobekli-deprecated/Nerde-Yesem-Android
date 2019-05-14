@@ -7,10 +7,13 @@ import java.util.List;
 
 public class CategoriesResponse {
 
-        @SerializedName("categories")
-        @Expose
-        private List<Category> categories = null;
+    @SerializedName("categories")
+    @Expose
+    private List<Category> categories = null;
 
+    public List<Category> getCategories() {
+        return categories;
     }
+}
 
 
