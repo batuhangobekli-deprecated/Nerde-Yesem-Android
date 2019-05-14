@@ -18,7 +18,6 @@ import android.widget.RelativeLayout;
 import com.example.neyesem.BuildConfig;
 import com.example.neyesem.R;
 import com.example.neyesem.model.nearby_restaurants.GeocodeResponse;
-import com.example.neyesem.model.restaurant_detail.RestaurantDetail;
 import com.example.neyesem.services.LocationService;
 import com.example.neyesem.shared.BaseFragment;
 import com.example.neyesem.shared.MainActivity;
