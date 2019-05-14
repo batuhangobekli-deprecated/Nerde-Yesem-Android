@@ -44,7 +44,6 @@ public class NearbyRestaurantsAdapter extends RecyclerView.Adapter<NearbyRestaur
         holder.ratingTextView.setText(restaurant.getUserRating().getAggregateRating());
         String cuisineString = restaurant.getCuisines().split(",")[0];
         holder.cuisineTextView.setText(cuisineString);
-        holder.distanceTextView.setText("sa");
         holder.restaurantNameTextView.setText(restaurant.getName());
         NeyesemExtensions.loadImage(holder.thumbnailImageView, restaurant.getThumb(), Priority.HIGH, false, R.color.black);
         if(locationResult == null)

@@ -15,10 +15,10 @@ public class Location {
     private String title;
     @SerializedName("latitude")
     @Expose
-    private String latitude;
+    private double latitude;
     @SerializedName("longitude")
     @Expose
-    private String longitude;
+    private double longitude;
     @SerializedName("city_id")
     @Expose
     private Integer cityId;
@@ -44,15 +44,15 @@ public class Location {
      return title;
     }
 
-    public String getLatitude() {
-     return latitude;
-    }
+ public double getLatitude() {
+  return latitude;
+ }
 
-    public String getLongitude() {
-     return longitude;
-    }
+ public double getLongitude() {
+  return longitude;
+ }
 
-    public Integer getCityId() {
+ public Integer getCityId() {
      return cityId;
     }
 

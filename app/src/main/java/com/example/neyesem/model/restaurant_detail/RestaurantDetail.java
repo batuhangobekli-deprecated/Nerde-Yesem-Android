@@ -2,6 +2,7 @@ package com.example.neyesem.model.restaurant_detail;
 
 import com.example.neyesem.model.UserRating;
 import com.example.neyesem.model.nearby_restaurants.Location;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -169,5 +170,8 @@ public class RestaurantDetail {
 
     public List<AllReview> getAllReviews() {
         return allReviews;
+    }
+    public LatLng getLatlong() {
+        return new LatLng(getLocation().getLatitude(),getLocation().getLongitude());
     }
 }

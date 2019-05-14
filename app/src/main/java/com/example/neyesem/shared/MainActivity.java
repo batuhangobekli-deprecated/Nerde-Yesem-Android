@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements FragNavController
         categoriesButton = findViewById(R.id.linearlayout_main_categories);
         nearbyRestaurantsImage = findViewById(R.id.imageview_main_nearbyrestaurants);
         categoriesImage = findViewById(R.id.imageview_main_categories);
+        back.setOnClickListener(v -> onBackPressed());
+
 
         nearbyRestaurantsButton.setOnClickListener(v -> {
             clickTab(0);

@@ -32,9 +32,8 @@
                 android:id="@+id/brandbar_logo"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                />
+                android:layout_centerInParent="true"
+                app:srcCompat="@drawable/logo" />
 
         </RelativeLayout>
 
