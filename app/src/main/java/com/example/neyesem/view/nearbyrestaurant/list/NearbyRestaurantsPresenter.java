@@ -19,7 +19,7 @@ public class NearbyRestaurantsPresenter {
     public NearbyRestaurantsPresenter(NearbyRestaurantsView nearbyRestaurantsView) {
         this.nearbyRestaurantsView = nearbyRestaurantsView;
     }
-    public void getBlogDetail(AppCompatActivity activity, ViewGroup container, double latitude, double longitude) {
+    public void getNearbyRestaurants(AppCompatActivity activity, ViewGroup container, double latitude, double longitude) {
         apiInterface.getNearbyRestaurants(latitude,longitude).enqueue(new CustomCallBack<GeocodeResponse>(activity,container,nearbyRestaurantsView,CustomCallBack.Type.Layout) {
             @Override
             public void onResponse(@NonNull Call<GeocodeResponse> call, @NonNull Response<GeocodeResponse> response) {

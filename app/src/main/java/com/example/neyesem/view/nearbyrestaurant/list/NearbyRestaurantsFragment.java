@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -39,6 +40,7 @@ public class NearbyRestaurantsFragment extends BaseFragment implements NearbyRes
     private Location lastLocation;
     private NearbyRestaurantsAdapter adapter = new NearbyRestaurantsAdapter(this);
     private RecyclerView nearbyRestaurantsRecyclerView;
+    private SwipeRefreshLayout refreshLayout;
 
 
     @Nullable
@@ -54,14 +56,23 @@ public class NearbyRestaurantsFragment extends BaseFragment implements NearbyRes
     }
 
     private void getNearbyRestaurants(){
-        presenter.getBlogDetail((AppCompatActivity) getActivity(),container,lastLocation.getLatitude(),lastLocation.getLongitude());
+        presenter.getNearbyRestaurants((AppCompatActivity) getActivity(),container,lastLocation.getLatitude(),lastLocation.getLongitude());
     }
 
     private void initViews() {
+        refreshLayout = parentView.findViewById(R.id.refreshView);
         container = parentView.findViewById(R.id.relativelayout_container);
         nearbyRestaurantsRecyclerView = parentView.findViewById(R.id.recyclerview_nearbyrestaurants);
-        nearbyRestaurantsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+        LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        nearbyRestaurantsRecyclerView.setLayoutManager(manager);
         nearbyRestaurantsRecyclerView.setAdapter(adapter);
+
+        refreshLayout.setOnRefreshListener(() -> {
+            // Load data to your RecyclerView
+            startLocationService();
+            refreshLayout.setRefreshing(false);
+
+        });
     }
 
     private void configurelocationPermission(){
@@ -86,7 +97,9 @@ public class NearbyRestaurantsFragment extends BaseFragment implements NearbyRes
     }
 
     private void startLocationService() {
-        EventBus.getDefault().register(this);
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
         getActivity().startService(new Intent(getContext(), LocationService.class));
     }
 

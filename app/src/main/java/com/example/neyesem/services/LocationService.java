@@ -66,7 +66,7 @@ public class LocationService extends Service implements
         LocationRequest mLocationRequest = new LocationRequest();
         mLocationRequest.setInterval(200); // two minute interval
         mLocationRequest.setFastestInterval(1000);
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         try {
             mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, null);
         } catch (SecurityException e) {

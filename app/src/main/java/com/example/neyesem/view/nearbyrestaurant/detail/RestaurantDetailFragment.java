@@ -101,7 +101,7 @@ public class RestaurantDetailFragment extends BaseFragment implements Restaurant
         else
             phoneNumberTextView.setText("Telefon numarası yok");
 
-        NeyesemExtensions.loadImage(thumbnailImageView, restaurantDetail.getThumb(), Priority.HIGH, false, R.color.black);
+        NeyesemExtensions.loadImage(thumbnailImageView, restaurantDetail.getThumb(), Priority.HIGH, false, R.drawable.placeholder_restaurant);
         photo = restaurantDetail.getThumb();
         location = restaurantDetail.getLatlong();
         mapFragment.getMapAsync(this);
